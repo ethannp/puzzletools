@@ -49,10 +49,9 @@ document.getElementById("query").addEventListener("input", e => {
         let counter = 0;
         arr.forEach((char) => {
             let child = document.createElement("span");
-            if(char == "?" || char == " "){
+            if (char == "?" || char == " ") {
                 child.classList.add("char2");
-            }
-            else{
+            } else {
                 child.classList.add("char");
             }
             child.innerHTML = char;
@@ -128,8 +127,30 @@ function refreshResult() {
     result = result.replace(/\?/g, "A");
 
     document.getElementById("redirect").href = `https://nutrimatic.org/?q=${result}&go=Go`
+
+    var request = makeHttpObject();
+    request.open("GET", `https://nutrimatic.org/?q=${result}&go=Go`, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            alert(request.responseText);
+        }
+    };
 }
 
+function makeHttpObject() {
+    try {
+        return new XMLHttpRequest();
+    } catch (error) {}
+    try {
+        return new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (error) {}
+    try {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (error) {}
+
+    throw new Error("Could not create HTTP request object.");
+}
 
 document.getElementById("single").addEventListener("change", e => {
     refreshResult();
