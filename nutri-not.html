@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Nutrimatic "Not"</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <script src="js/nutr-not.js" defer></script>
+</head>
+
+<body>
+    <div class="center box" style="height:500px;text-align:center;padding:20px">
+        <h1>Nutrimatic "Not"</h1>
+        <p>Enter text</p>
+        <p style="color:#555;margin-top:5px;font-size:14px;"><i>Use parenthesis to create character blocks and question marks for unknown letters</i></p>
+        <input autocomplete="off" class="text" type="text" id="query" style="margin:10px;"></input>
+        <p style="color:red;" id="balanced" hidden>*Unbalanced or unfilled parenthesis present*</p>
+        <br><br>
+        <div id="result" hidden>
+            <p>Select characters that shouldn't be included</p>
+            <div id="not" style="margin:15px;white-space: pre-wrap;"></div>
+            <br>
+            <input type="checkbox" id="single" checked>
+            <label for="single">Restrict spaces from being added?</label>
+            <br><br>
+            <button class="btn" onclick="copy()" style="margin-bottom:15px;">Copy query</button><br>
+            <a class="btn" id="redirect" target="_blank">Search query</a>
+        </div>
+    </div>
+</body>
+
+</html>
