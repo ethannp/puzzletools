@@ -13,29 +13,43 @@ h1 {
 p {
     margin: 0;
     font-family: "Fira Sans", sans-serif;
+    font-size: 16px;
 }
 
-a{
+a {
     font-family: "Fira Sans", sans-serif;
 }
 
-.center {
+@media only screen and (min-width: 600px) {
+    .centery {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .centery {
+        position: relative;
+        top: 7%
+    }
+}
+
+.centerx {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     margin: auto;
 }
 
 .box {
     width: 70%;
-    max-width: 1400px;
+    max-width: 900px;
     min-width: 350px;
 }
 
 .text {
     height: 50px;
     max-width: 400px;
-    width:90%;
+    width: 90%;
     border-radius: 50px;
     outline: none;
     border: 3px #3E3EDA solid;
@@ -65,12 +79,12 @@ a{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    line-height:55px;
+    line-height: 55px;
     white-space: pre-wrap;
 }
 
-.char:hover{
-    cursor:pointer;
+.char:hover {
+    cursor: pointer;
 }
 
 .char2 {
@@ -85,32 +99,54 @@ a{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    line-height:55px;
+    line-height: 55px;
     white-space: pre-wrap;
 }
 
-.btn{
-    outline:none;
-    font-size:20px;
-    padding:5px 15px;
-    text-decoration:none;
+.btn {
+    outline: none;
+    font-size: 20px;
+    padding: 5px 15px;
+    text-decoration: none;
     font-family: "Fira Sans";
-    cursor:pointer;
+    cursor: pointer;
     border: 2px #3e3eda solid;
-    border-radius:50px;
-    background-color:white;
-    color:#3E3EDA;
+    border-radius: 50px;
+    background-color: white;
+    color: #3E3EDA;
 }
 
-.btn:hover{
-    background-color:hsl(234, 100%, 96%);
+.btn:hover {
+    background-color: hsl(234, 100%, 96%);
 }
 
 .not {
     border: 2px #ff9393 solid;
-    background-color:#fff7f7;
+    background-color: #fff7f7;
 }
 
-a{
-    color:black;
+a {
+    color: black;
+}
+
+#balanced {
+    transition: opacity 0.3s linear;
+}
+
+#balanced:not(.show) {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+    visibility:hidden;
+}
+
+#result {
+    transition: opacity 0.7s linear;
+}
+
+#result:not(.show) {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+    visibility:hidden;
 }

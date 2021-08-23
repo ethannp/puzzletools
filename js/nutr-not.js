@@ -13,7 +13,7 @@ let typed = false;
 let nots = [];
 document.getElementById("query").addEventListener("input", e => {
     if (!typed) {
-        document.getElementById("result").removeAttribute("hidden");
+        document.getElementById("result").classList.add("show");
     }
     let text = document.getElementById("query").value.toLowerCase().replace(/[^a-z()? ]+/g, "");
     let arr = [];
@@ -43,16 +43,15 @@ document.getElementById("query").addEventListener("input", e => {
     }
     if (balanced && !open) {
         nots = [];
-        document.getElementById("balanced").hidden = true;
+        document.getElementById("balanced").classList.remove("show");
         let holder = document.getElementById("not");
         removeAllChildNodes(holder);
         let counter = 0;
         arr.forEach((char) => {
             let child = document.createElement("span");
-            if(char == "?" || char == " "){
+            if (char == "?" || char == " ") {
                 child.classList.add("char2");
-            }
-            else{
+            } else {
                 child.classList.add("char");
             }
             child.innerHTML = char;
@@ -76,7 +75,7 @@ document.getElementById("query").addEventListener("input", e => {
         refreshResult();
 
     } else {
-        document.getElementById("balanced").hidden = false;;
+        document.getElementById("balanced").classList.add("show");
     }
 });
 
@@ -117,7 +116,7 @@ function refreshResult() {
                 }
             } else {
                 let re = new RegExp(`[${child.innerHTML}]+`, "g")
-                result += "[" + alphabet.replace(re, "") + "]";
+                result += "[" + condense(alphabet.replace(re, "")) + "]";
             }
         }
     }
@@ -134,3 +133,16 @@ function refreshResult() {
 document.getElementById("single").addEventListener("change", e => {
     refreshResult();
 })
+
+let condense = (str) => {
+    let finalStr = "";
+    if (str.length <= 3) return str;
+    for (let i = 0, l = str.length - 1; i < l; i++) {
+        const curAlphabetPos = parseInt(str[i], 36) - 10;
+        const nextAlphabetPos = parseInt(str[i + 1], 36) - 10;
+        if (curAlphabetPos + 1 === nextAlphabetPos) {
+            if (!finalStr.endsWith("-")) finalStr += `${str[i]}-`;
+        } else finalStr += str[i];
+    }
+    return finalStr + str[str.length - 1];
+}
