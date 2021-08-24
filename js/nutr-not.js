@@ -7,8 +7,10 @@ function copy() {
     inp.select();
     document.execCommand('copy', false);
     inp.remove();
+    window.clearTimeout();
     document.getElementById("tooltip-copy").classList.add("show");
     setTimeout(function () {
+        window.clearTimeout();
         document.getElementById("tooltip-copy").classList.remove("show");
     }, 4000);
     
@@ -130,6 +132,7 @@ function refreshResult() {
 
     result = result.replace(/\?/g, "A");
     document.getElementById("tooltip-copy").classList.remove("show");
+    window.clearTimeout();
     document.getElementById("redirect").href = `https://nutrimatic.org/?q=${result}&go=Go`
 }
 
