@@ -7,7 +7,11 @@ function copy() {
     inp.select();
     document.execCommand('copy', false);
     inp.remove();
-    alert("Copied!");
+    document.getElementById("tooltip-copy").classList.add("show");
+    setTimeout(function () {
+        document.getElementById("tooltip-copy").classList.remove("show");
+    }, 4000);
+    
 }
 let typed = false;
 let nots = [];
@@ -125,7 +129,7 @@ function refreshResult() {
     }
 
     result = result.replace(/\?/g, "A");
-
+    document.getElementById("tooltip-copy").classList.remove("show");
     document.getElementById("redirect").href = `https://nutrimatic.org/?q=${result}&go=Go`
 }
 
@@ -137,12 +141,18 @@ document.getElementById("single").addEventListener("change", e => {
 let condense = (str) => {
     let finalStr = "";
     if (str.length <= 3) return str;
-    for (let i = 0, l = str.length - 1; i < l; i++) {
+    for (let i = 0; i < str.length - 1; i++) {
         const curAlphabetPos = parseInt(str[i], 36) - 10;
         const nextAlphabetPos = parseInt(str[i + 1], 36) - 10;
         if (curAlphabetPos + 1 === nextAlphabetPos) {
-            if (!finalStr.endsWith("-")) finalStr += `${str[i]}-`;
-        } else finalStr += str[i];
+            if (!finalStr.endsWith("-")) {
+                finalStr += `${str[i]}-`;
+            }
+        } else if (parseInt(finalStr.charAt(finalStr.length-2), 36) - 9 == curAlphabetPos) {
+            finalStr = finalStr.substring(0,finalStr.length-1) + str[i];
+        } else {
+            finalStr += str[i];
+        }
     }
     return finalStr + str[str.length - 1];
 }

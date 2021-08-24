@@ -7,28 +7,36 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
     <link rel="stylesheet" href="base.css">
     <script src="js/nutr-not.js" defer></script>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
     <div class="centery centerx box" style="height:auto;text-align:center;padding:20px">
-        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:-40px">
-            <a href="/"><img src="images/logo.png" style="width:70px;height:70px;display:block;margin:auto;"></a>
+        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:-40px;width:70px">
+            <a href="index.html">
+                <img src="images/logo.png" width="70" height="70"
+                    style="width:70px;height:70px;display:block;margin:auto;">
+            </a>
         </div>
         <h1>Nutrimatic "Not"</h1>
         <p>Enter text</p>
-        <p style="color:#555;margin-top:5px;font-size:14px;"><i>Use parenthesis to create character blocks and question marks for unknown letters</i></p>
-        <input onkeypress="return /[A-z? ()]/i.test(event.key)" autocomplete="off" class="text" type="text" id="query" style="margin:10px;" maxlength="100"></input>
+        <p style="color:#555;margin-top:5px;font-size:14px;"><i>Use parenthesis to create character blocks and question
+                marks for unknown letters</i></p>
+        <input onkeypress="return /[A-Za-z? ()]/i.test(event.key)" autocomplete="off" class="text" type="text"
+            id="query" style="margin:10px;" maxlength="100"></input>
         <p style="color:red;" id="balanced" class="" style="opacity:0;">*Unbalanced or unfilled parenthesis present*</p>
-        <br>
-        <div id="result">
+        <div id="result" style="margin-top:15px;height:fit-content;">
             <p>Select characters that shouldn't be included</p>
-            <div id="not" style="margin:15px;white-space: pre-wrap;overflow-wrap: break-word; min-height:55px;"></div>
-            <br>
+            <div id="not"
+                style="margin:15px 15px 30px 15px;white-space: pre-wrap;overflow-wrap: break-word; min-height:55px;">
+            </div>
             <input type="checkbox" id="single" checked>
             <label for="single">Restrict spaces from being added?</label>
-            <br><br>
-            <button class="btn" onclick="copy()" style="margin-bottom:15px;">Copy query</button><br>
+            <div style="position:relative;margin:0 auto;left:0;right:0;text-align:center;height:50px;top:5px;width:100px;">
+                <span id="tooltip-copy" class="tooltip">Copied!</span>
+            </div>
+            <button class="btn" onclick="copy()" style="margin-bottom:15px;margin-top:0px;">Copy query</button>
+            <br>
             <a class="btn" id="redirect" target="_blank">Search query</a>
         </div>
     </div>

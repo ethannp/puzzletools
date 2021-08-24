@@ -81,6 +81,7 @@ a {
     user-select: none;
     line-height: 55px;
     white-space: pre-wrap;
+    transition: all 0.1s linear;
 }
 
 .char:hover {
@@ -114,6 +115,7 @@ a {
     border-radius: 50px;
     background-color: white;
     color: #3E3EDA;
+    transition: all 0.1s linear;
 }
 
 .btn:hover {
@@ -137,7 +139,7 @@ a {
     opacity: 0;
     pointer-events: none;
     cursor: default;
-    visibility:hidden;
+    visibility: hidden;
 }
 
 #result {
@@ -148,5 +150,34 @@ a {
     opacity: 0;
     pointer-events: none;
     cursor: default;
-    visibility:hidden;
+    visibility: hidden;
+}
+
+.tooltip {
+    background-color: rgb(101,101,225);
+    z-index: 5;
+    color: white;
+    width:70px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display:inline-block;
+    transition: opacity 0.2s linear;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 37px;
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgb(101,101,225) transparent transparent transparent;
+    transition: opacity 0.2s linear;
+}
+
+.tooltip:not(.show) {
+    opacity:0;
+    pointer-events: none;
+    cursor: default;
 }
