@@ -19,15 +19,15 @@
             </a>
         </div>
         <h1>Nutrimatic "Not"</h1>
-        <p>Enter text</p>
-        <p style="color:#555;margin-top:5px;font-size:14px;"><i>Use parenthesis to create character blocks and question
+        <p style="margin-bottom:5px;">Enter text</p>
+        <p style="color:#555;font-size:14px;"><i>Use parenthesis to create character blocks and question
                 marks for unknown letters</i></p>
         <input onkeypress="return /[A-Za-z? ()]/i.test(event.key)" autocomplete="off" class="text" type="text"
             id="query" style="margin:10px;" maxlength="100"></input>
         <p style="color:red;" id="balanced" class="" style="opacity:0;">*Unbalanced or unfilled parenthesis present*</p>
         <div id="result" style="margin-top:15px;height:fit-content;">
-            <p>Select characters that shouldn't be included</p>
-            <p style="color:#555; margin-top:5px; font-size:14px;"><i>i.e., negated character classes</i></p>
+            <p style="margin-bottom:5px;">Select characters that shouldn't be included</p>
+            <p style="color:#555; font-size:14px;"><i>i.e., negated character classes</i></p>
             <div id="not"
                 style="margin:15px 15px 30px 15px;white-space: pre-wrap;overflow-wrap: break-word; min-height:55px;">
             </div>

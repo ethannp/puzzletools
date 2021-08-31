@@ -35,6 +35,11 @@ a {
     }
 }
 
+.topy {
+    position: relative;
+    top: 7%
+}
+
 .centerx {
     position: relative;
     margin: auto;
@@ -43,7 +48,7 @@ a {
 .box {
     width: 70%;
     max-width: 900px;
-    min-width: 350px;
+    min-width: 300px;
 }
 
 .text {
@@ -154,13 +159,13 @@ a {
 }
 
 .tooltip {
-    background-color: rgb(101,101,225);
+    background-color: rgb(101, 101, 225);
     z-index: 5;
     color: white;
-    width:70px;
+    width: 70px;
     padding: 10px 15px;
     border-radius: 50px;
-    display:inline-block;
+    display: inline-block;
     transition: opacity 0.2s linear;
 }
 
@@ -172,12 +177,40 @@ a {
     margin-left: -7px;
     border-width: 7px;
     border-style: solid;
-    border-color: rgb(101,101,225) transparent transparent transparent;
+    border-color: rgb(101, 101, 225) transparent transparent transparent;
     transition: opacity 0.2s linear;
 }
 
 .tooltip:not(.show) {
-    opacity:0;
+    opacity: 0;
     pointer-events: none;
     cursor: default;
+}
+
+code {
+    font-family: Consolas, "courier new";
+    color: #4f4fac;
+    background-color: #f1f1f1;
+    padding: 3px;
+    font-size: 100%;
+    display: inline-block;
+    margin: 10px 0px;
+    border-radius: 5px;
+    overflow-wrap: anywhere;
+}
+
+.code-input{
+    background-color: #f1f1f1;
+    color:#b84d4d;
+    border:1px #f1f1f1 solid;
+    margin: 10px 0px;
+    width:60px;
+    font-size:120%;
+    text-align:center;
+    border-radius:100px;
+    outline:none;
+}
+
+.code-input:focus{
+    border:1px #b84d4d solid;
 }

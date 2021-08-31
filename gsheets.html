@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Google Sheets Reference</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <script src="js/gsheets.js" defer></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="centerx box topy" style="height:auto;text-align:center;padding:20px">
+        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:-40px;width:70px">
+            <a href="index.html">
+                <img src="images/logo.png" width="70" height="70"
+                    style="width:70px;height:70px;display:block;margin:auto;">
+            </a>
+        </div>
+        <h1>Google Sheets Reference</h1>
+
+        <style>
+            .special {
+                color: #b84d4d;
+            }
+        </style>
+        <p>Change values of variables</p>
+        <input id="cell" type="text" placeholder="$cell" class="code-input" maxlength=6>
+        <br>
+        <input type="checkbox" id="ref">
+        <label for="ref">Absolute reference (include $)?</label>
+        <div style="text-align:left;margin-top:20px;">
+            <p>Split string into individual characters</p>
+            <code>=SPLIT(REGEXREPLACE(REGEXREPLACE(<span
+                    class="special c">$cell</span>&"","(?s)(.{1})","$1"&CHAR(127)),"'","''"),CHAR(127))</code>
+            <br><br>
+            <p>Return value left of VLOOKUP column</p>
+            <code>=INDEX(<span class="special">$col_return</span>,MATCH(<span class="special c">$cell</span>,<span
+                    class="special">$col_search</span>,0))</code>
+            <br><br>
+            <p>Reverse text</p>
+            <code>=JOIN("",ARRAYFORMULA(MID(<span class="special c">$cell</span>,LEN(<span
+                    class="special c">$cell</span>)-ROW(INDIRECT("1:"&LEN(<span
+                    class="special c">$cell</span>)))+1,1)))</code>
+            <br><br>
+            <p>Count number of certain character in cell</p>
+            <code>=LEN(REGEXREPLACE(<span class="special c">$cell</span>,"[^<span
+                    class="special">char</span>]",""))</code>
+            <br><br>
+            <p>Count number of certain character in range</p>
+            <code>=ARRAYFORMULA(SUM(LEN(REGEXREPLACE(<span class="special">$range</span>,"[^<span
+                    class="special">char</span>]",""))))</code>
+            <br><br>
+        </div>
+    </div>
+</body>
+
+</html>
