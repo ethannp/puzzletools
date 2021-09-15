@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <title>All Letters Optional</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <script src="js/optional.js" defer></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="centery centerx box" style="height:auto;text-align:center;padding:20px">
+        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:-40px;width:70px">
+            <a href="index.html">
+                <img src="images/logo.png" width="70" height="70"
+                    style="width:70px;height:70px;display:block;margin:auto;">
+            </a>
+        </div>
+        <h1>All Letters Optional</h1>
+        <p style="margin-bottom:5px;">Enter text</p>
+        <input onkeypress="return /[A-Za-z? ()]/i.test(event.key)" autocomplete="off" class="text" type="text"
+            id="query" style="margin:10px;" maxlength="100"></input>
+        <br><br>
+        <p style="margin-bottom:8px;">Length</p>
+        <p style="line-height:1.25rem"><i style='color:#555'>Use commas to create ranges of lenghts. For example, <code>3,5</code> return strings
+                with lengths between 3 and 5 letters, <code>,5</code> is equivalent to <code>1,5</code> and
+                <code>4,</code> is the same as all strings with lengths greater than or equal to 4. Leave blank to
+                include all lengths.</i></p>
+        <input onkeypress="return /[0-9\-,]/i.test(event.key)" autocomplete="off" class="small" type="text"
+            id="input-small" style="margin:10px;" maxlength="10"></input>
+            <br><br>
+        <input type="checkbox" class="checkbox" id="single" checked>
+        <label for="single">Restrict spaces from being added?</label>
+        <br><br><br>
+        <a id="redirect" class="btn" target="_blank">Link to query</a>
+    </div>
+    </div>
+</body>
+
+</html>
