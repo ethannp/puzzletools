@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Datamuse Intersection</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <script src="js/intersection.js" defer></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <style>
+        
+    </style>
+
+
+    <div class="centerx box" style="height:auto;text-align:center;padding:20px;padding-top:60px;">
+        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:15px;width:70px">
+            <a href="index.html">
+                <img src="images/logo.png" width="70" height="70"
+                    style="width:70px;height:70px;display:block;margin:auto;">
+            </a>
+        </div>
+        <h1>Datamuse Intersection</h1>
+        <button class="btn" id="add">+</button>
+        <button class="btn" id="sub">-</button>
+        <br>
+        <table class="centerx" id="timings">
+            <colgroup width="50%"></colgroup>
+            <tr>
+                <th>Query type</th>
+                <th>Query</th>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <input id="c1" class="text" type="text">
+                </td>
+            </tr>
+        </table>
+        <br><br><br>
+        <a id="redirect" class="btn" target="_blank">Search</a>
+        <br><br>
+        <p><b>Results (sorted by popularity)</b></p>
+        <table id="content" style="text-align:center;margin:auto;">
+        </table>
+    </div>
+    </div>
+</body>
+
+</html>

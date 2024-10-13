@@ -243,3 +243,21 @@ code {
 .spoiler:hover {
     background-color:white;
 }
+
+#add {
+    color: #3eda65;
+    border: 2px #3eda65 solid;
+}
+
+#add:hover {
+    background-color: hsl(141, 100%, 96%)
+}
+
+#sub {
+    color: #cf4467;
+    border: 2px #cf4467 solid;
+}
+
+#sub:hover {
+    background-color: hsl(0, 100%, 96%)
+}

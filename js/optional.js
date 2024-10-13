@@ -9,9 +9,13 @@ document.getElementById("single").addEventListener("input", e => {
 });
 function refresh() {
     let value = document.getElementById("query").value.toLowerCase().replace(/[^a-z]+/g, "");
+    document.getElementById("query").value = value;
     let result = "";
     for (let i = 0; i < value.length; i++) {
         result += value[i] + "?"
+    }
+    if(document.getElementById("anagram").checked){
+        result = `<${result}>`
     }
     if(document.getElementById("single").checked){
         result = `"${result}"`

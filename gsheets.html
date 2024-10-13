@@ -31,10 +31,6 @@
         <input type="checkbox" class="checkbox" id="ref">
         <label for="ref">Absolute reference (include $)?</label>
         <div style="text-align:left;margin-top:20px;">
-            <p>Split string into individual characters</p>
-            <code class="code-tall">=SPLIT(REGEXREPLACE(REGEXREPLACE(<span
-                    class="special c">$cell</span>&"","(?s)(.{1})","$1"&CHAR(127)),"'","''"),CHAR(127))</code>
-            <br><br>
             <p>Return value left of VLOOKUP column</p>
             <code class="code-tall">=INDEX(<span class="special">$col_return</span>,MATCH(<span class="special c">$cell</span>,<span
                     class="special">$col_search</span>,0))</code>
@@ -51,6 +47,9 @@
             <p>Count number of certain character in range</p>
             <code class="code-tall">=ARRAYFORMULA(SUM(LEN(REGEXREPLACE(<span class="special">$range</span>,"[^<span
                     class="special">char</span>]",""))))</code>
+            <br><br>
+            <p>Letter to Number</p>
+            <code class="code-tall">=COLUMN(INDIRECT(<span class="special c">$cell</span>&"1"))</code>
             <br><br>
         </div>
     </div>
