@@ -7,6 +7,9 @@ document.getElementById("input-small").addEventListener("input", e => {
 document.getElementById("single").addEventListener("input", e => {
     refresh();
 });
+document.getElementById("anagram").addEventListener("input", e => {
+    refresh();
+});
 function refresh() {
     let value = document.getElementById("query").value.toLowerCase().replace(/[^a-z]+/g, "");
     document.getElementById("query").value = value;
