@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Anagrams</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="js/anagrams.js" defer></script>
+    <link rel="stylesheet" href="base.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+
+    <style>
+
+hr {
+    border: 0;
+    margin-top: 20px;
+    border-top: 5px rgba(62,62,218, 1) dotted;
+}
+
+.char-block {
+    width: 40px;
+    border-radius: 5px;
+    border: 2px #ddd solid;
+    padding-top: 8px;
+    margin: 4px 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 50px;
+    transition: all 0.1s linear;
+    display: inline-block;
+    background-color: #fff;
+    text-align: center;
+}
+.char-bad {
+    border: 2px #ff9393 solid;
+    background-color: #fff7f7;
+}
+.char-good {
+    border: 2px #aaffa0 solid;
+    background-color: #eaffea;
+}
+
+.letter {
+    font-size: 25px;
+    display:inline-block;
+    width: 100%;
+}
+.count {
+    display: inline-block;
+    color:rgba(42,42,42, 0.7);
+    font-size: 14px;
+    overflow: visible;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+#alphabet {
+    margin: auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+#result {
+    font-size: 25px;
+    padding: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.result-good {
+    color:rgb(45, 156, 28);
+}
+
+.result-bad {
+    color:rgb(190, 35, 35)
+}
+    </style>
+    <div class="topy centerx box" style="height:auto;text-align:center;padding-top: 20px;">
+        <div style="position:absolute;margin:auto;left:0;right:0;text-align:center;z-index:1;top:-40px;width:70px">
+            <a href="index.html">
+                <img src="images/logo.png" width="70" height="70"
+                    style="width:70px;height:70px;display:block;margin:auto;">
+            </a>
+        </div>
+        <h1>Anagrams</h1>
+        <textarea autocomplete="off" class="textarea-box" id="query1" style="margin:10px;"></textarea>
+        <textarea autocomplete="off" class="textarea-box" id="query2" style="margin:10px;"></textarea>
+        <hr>
+        <span id="result" class="result-good" style="margin-top:10px">Anagrams!</span>
+        <p style="margin-top: 10px">Lengths (normalized): <span id="len1">0</span> / <span id="len2">0</span></p>
+        <div id="alphabet" style="margin-top: 20px;">
+            <div class="char-block" id="char-a"><span class="letter">a</span><span class="count" id="count-a">0/0</span></div>
+            <div class="char-block" id="char-b"><span class="letter">b</span><span class="count" id="count-b">0/0</span></div>
+            <div class="char-block" id="char-c"><span class="letter">c</span><span class="count" id="count-c">0/0</span></div>
+            <div class="char-block" id="char-d"><span class="letter">d</span><span class="count" id="count-d">0/0</span></div>
+            <div class="char-block" id="char-e"><span class="letter">e</span><span class="count" id="count-e">0/0</span></div>
+            <div class="char-block" id="char-f"><span class="letter">f</span><span class="count" id="count-f">0/0</span></div>
+            <div class="char-block" id="char-g"><span class="letter">g</span><span class="count" id="count-g">0/0</span></div>
+            <div class="char-block" id="char-h"><span class="letter">h</span><span class="count" id="count-h">0/0</span></div>
+            <div class="char-block" id="char-i"><span class="letter">i</span><span class="count" id="count-i">0/0</span></div>
+            <div class="char-block" id="char-j"><span class="letter">j</span><span class="count" id="count-j">0/0</span></div>
+            <div class="char-block" id="char-k"><span class="letter">k</span><span class="count" id="count-k">0/0</span></div>
+            <div class="char-block" id="char-l"><span class="letter">l</span><span class="count" id="count-l">0/0</span></div>
+            <div class="char-block" id="char-m"><span class="letter">m</span><span class="count" id="count-m">0/0</span></div>
+            <div class="char-block" id="char-n"><span class="letter">n</span><span class="count" id="count-n">0/0</span></div>
+            <div class="char-block" id="char-o"><span class="letter">o</span><span class="count" id="count-o">0/0</span></div>
+            <div class="char-block" id="char-p"><span class="letter">p</span><span class="count" id="count-p">0/0</span></div>
+            <div class="char-block" id="char-q"><span class="letter">q</span><span class="count" id="count-q">0/0</span></div>
+            <div class="char-block" id="char-r"><span class="letter">r</span><span class="count" id="count-r">0/0</span></div>
+            <div class="char-block" id="char-s"><span class="letter">s</span><span class="count" id="count-s">0/0</span></div>
+            <div class="char-block" id="char-t"><span class="letter">t</span><span class="count" id="count-t">0/0</span></div>
+            <div class="char-block" id="char-u"><span class="letter">u</span><span class="count" id="count-u">0/0</span></div>
+            <div class="char-block" id="char-v"><span class="letter">v</span><span class="count" id="count-v">0/0</span></div>
+            <div class="char-block" id="char-w"><span class="letter">w</span><span class="count" id="count-w">0/0</span></div>
+            <div class="char-block" id="char-x"><span class="letter">x</span><span class="count" id="count-x">0/0</span></div>
+            <div class="char-block" id="char-y"><span class="letter">y</span><span class="count" id="count-y">0/0</span></div>
+            <div class="char-block" id="char-z"><span class="letter">z</span><span class="count" id="count-z">0/0</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
